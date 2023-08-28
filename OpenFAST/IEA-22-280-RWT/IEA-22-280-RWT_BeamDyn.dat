@@ -90,6 +90,8 @@ END of input file (the word "END" must appear in the first 3 columns of this las
 "TDxr"
 "TDyr"
 "TDzr"
+"RDxr"
+"RDyr"
 "RDzr"
 END (the word "END" must appear in the first 3 columns of this last OutList line in the optional nodal output section)
 ====================================================================================================

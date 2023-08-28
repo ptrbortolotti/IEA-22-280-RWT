@@ -151,5 +151,7 @@ END of input file (the word "END" must appear in the first 3 columns of this las
               OutList             - The next line(s) contains a list of output parameters.  See OutListParameters.xlsx for a listing of available output channels, (-)
 "Ft"
 "Fn"
+"Fx"
+"Fy"
 END (the word "END" must appear in the first 3 columns of this last OutList line in the optional nodal output section)
 ====================================================================================================
