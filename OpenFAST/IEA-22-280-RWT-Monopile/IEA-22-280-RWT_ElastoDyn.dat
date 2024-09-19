@@ -10,18 +10,18 @@ True                   FlapDOF2    - Second flapwise blade mode DOF (flag)
 True                   EdgeDOF     - First edgewise blade mode DOF (flag)
 False                  TeetDOF     - Rotor-teeter DOF (flag) [unused for 3 blades]
 False                  DrTrDOF     - Drivetrain rotational-flexibility DOF (flag)
-True                   GenDOF      - Generator DOF (flag)
+False                   GenDOF      - Generator DOF (flag)
 False                  YawDOF      - Yaw DOF (flag)
 True                   TwFADOF1    - First fore-aft tower bending-mode DOF (flag)
 True                   TwFADOF2    - Second fore-aft tower bending-mode DOF (flag)
 True                   TwSSDOF1    - First side-to-side tower bending-mode DOF (flag)
 True                   TwSSDOF2    - Second side-to-side tower bending-mode DOF (flag)
-True                   PtfmSgDOF   - Platform horizontal surge translation DOF (flag)
-True                   PtfmSwDOF   - Platform horizontal sway translation DOF (flag)
-True                   PtfmHvDOF   - Platform vertical heave translation DOF (flag)
-True                   PtfmRDOF    - Platform roll tilt rotation DOF (flag)
-True                   PtfmPDOF    - Platform pitch tilt rotation DOF (flag)
-True                   PtfmYDOF    - Platform yaw rotation DOF (flag)
+False                  PtfmSgDOF   - Platform horizontal surge translation DOF (flag)
+False                  PtfmSwDOF   - Platform horizontal sway translation DOF (flag)
+False                  PtfmHvDOF   - Platform vertical heave translation DOF (flag)
+False                  PtfmRDOF    - Platform roll tilt rotation DOF (flag)
+False                  PtfmPDOF    - Platform pitch tilt rotation DOF (flag)
+False                  PtfmYDOF    - Platform yaw rotation DOF (flag)
 ---------------------- INITIAL CONDITIONS --------------------------------------
 0.0                    OoPDefl     - Initial out-of-plane blade-tip displacement (meters)
 0.0                    IPDefl      - Initial in-plane blade-tip deflection (meters)
@@ -81,6 +81,9 @@ True                   PtfmYDOF    - Platform yaw rotation DOF (flag)
 0.0                    PtfmRIner   - Platform inertia for roll tilt rotation about the platform CM (kg m^2)
 0.0                    PtfmPIner   - Platform inertia for pitch tilt rotation about the platform CM (kg m^2)
 100000000.0            PtfmYIner   - Platform inertia for yaw rotation about the platform CM (kg m^2)
+0                      PtfmXYIner  - Platform xy moment of inertia about the platform CM (=-int(xydm)) (kg m^2)
+0                      PtfmYZIner  - Platform yz moment of inertia about the platform CM (=-int(yzdm)) (kg m^2)
+0                      PtfmXZIner  - Platform xz moment of inertia about the platform CM (=-int(xzdm)) (kg m^2)
 ---------------------- BLADE ---------------------------------------------------
 50                     BldNodes    - Number of blade nodes (per blade) used for analysis (-)
 "../IEA-22-280-RWT/IEA-22-280-RWT_ElastoDyn_blade.dat" BldFile1    - Name of file containing properties for blade 1 (quoted string)
@@ -95,6 +98,11 @@ True                   PtfmYDOF    - Platform yaw rotation DOF (flag)
 0.0                    TeetHStP    - Rotor-teeter hard-stop position (degrees) [used only for 2 blades and when TeetMod=1]
 0.0                    TeetSSSp    - Rotor-teeter soft-stop linear-spring constant (N-m/rad) [used only for 2 blades and when TeetMod=1]
 0.0                    TeetHSSp    - Rotor-teeter hard-stop linear-spring constant (N-m/rad) [used only for 2 blades and when TeetMod=1]
+---------------------- YAW-FRICTION --------------------------------------------
+          0   YawFrctMod  - Yaw-friction model {0: none, 1: friction without Fz term at the yaw bearing, 2: friction includes Fz term at yaw bearing, 3: user defined model} (switch)
+        300   M_CSmax     - Maximum Coulomb friction torque (N-m)[mu_s*D_eff when YawFrctMod=1 and Fz*mu_s*D_eff when YawFrctMod=2]
+         40   M_CD        - Dynamic friction moment at null yaw rate (N-m) [mu_d*D_eff when YawFrctMod=1 and Fz*mu_d*D_eff when YawFrctMod=2]
+          0   sig_v       - Viscous friction coefficient (N-m/(rad/s))
 ---------------------- DRIVETRAIN ----------------------------------------------
 100.0                  GBoxEff     - Gearbox efficiency (%)
 1.0                    GBRatio     - Gearbox ratio (-)
